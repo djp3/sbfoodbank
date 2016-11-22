@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Map of Food Resources</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="mapstyle.css"> -->
+
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+      .google-maps {
+        position: relative;
+        /* padding-bottom: 75%; // This is the aspect ratio */
+        height: 100vh;
+        overflow: hidden;
+      }
+      .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+      }
+    </style>
+  	</head>
+
+  <body>
+	<div class="container-fluid">
+      <div class="row-fluid">
+
+        <div class="google-maps">
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=15kRPIwGIlQ3rwzq_P4B876Mwuu0" height="100%" width="100%"></iframe>
+        </div>
+
+      </div>
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+
+</html>
