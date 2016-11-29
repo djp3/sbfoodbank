@@ -39,7 +39,7 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "/Users/djp3/git/sbfoodbank/test/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "../chromedriver");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
