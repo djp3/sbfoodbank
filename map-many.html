@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    		<style>
+      			#map 
+			{	height: 400px;
+        			width: 100%;
+       			}
+			<title> Food Bank Partners </title>
+    		</style>
+  	</head>
+  	<body>
+    		<div id="map"></div>
+    		<script>
+      		function initMap() 
+		{	var loc1 = {lat: 34.4208, lng: -119.6982};
+			var loc2 = {lat: 34.4071879, lng: -119.8289736};
+        		var map = new google.maps.Map(document.getElementById('map'), {zoom: 4,center: loc1});
+			var marker1 = new google.maps.Marker({position: loc1,map: map});
+			var marker2 = new google.maps.Marker({position: loc2,map: map})
+      		}
+    		</script>
+    		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAivupYZInhP_RsRvPW5NByQy7qcCcoa0U&callback=initMap">
+    		</script>
+  	</body>
+</html>
