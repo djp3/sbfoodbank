@@ -52,11 +52,24 @@
 				var f_h = b_h- $("footer.footer").position().top;
 				$("#map").height(b_h-h_h-f_h);
 
+				//Get the lat and lon from the url
+				var lat = getParameterByName('lat'); // latitude
+				var lon = getParameterByName('lon'); // longitude "" if empty
 
 				var uluru = {
-					lat: 34.4208,
-					lng: -119.6982
+					if lat == "" || lon == ""{
+						//Set the Default lat and lon
+						lat = 34.4208,
+						lon = -119.6982
+					}
+					else{
+						//If the lat and lon are passed in, then set it to the map for pin
+						lat: lat,
+						lng: lon
+					}
+					
 				};
+
 				var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 12,
 					center: uluru
