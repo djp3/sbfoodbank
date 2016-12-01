@@ -48,16 +48,20 @@ echo "<div class='container'>
 
 echo "<div class='container'>
             <div class='row-fluid text-center border-row'>
-                <div class='col-md-4 big-font'>
+                <div class='col-md-3 big-font'>
                     <p><b>Organization</b></p>
                     <br/>
                 </div>
-                <div class='col-md-4 big-font'>
+                <div class='col-md-3 big-font'>
                     <p><b>Address</b></p>
                     <br/>
                 </div>
-                <div class='col-md-4 big-font'>
+                <div class='col-md-3 big-font'>
                     <p><b>Hours</b></p>
+                    <br/>
+                </div>
+                <div class='col-md-3 big-font'>
+                    <p><b>Phone Numbers</b></p>
                     <br/>
                 </div>
             </div>
@@ -77,26 +81,20 @@ class TableRows extends RecursiveIteratorIterator {
             return "";
         }
 
-        if ($type == "Times of Distribution"){
-
-            if ($currentVar == ""){
+        if ($currentVar == ""){
 
             $currentVar = "Unknown";
 
             }
 
-            return "<div class='col-md-4'>
+        if ($type == "Times of Distribution"){
+
+            return "<div class='col-md-3'>
                     <p><b>" . $currentVar. "</b></p>";
 
         }
 
         if ($type == "Days of Distribution"){
-
-            if ($currentVar == ""){
-
-            $currentVar = "Unknown";
-
-            }
 
             return "<p><b>" . $currentVar. "</b></p>
                     <br/>
@@ -106,13 +104,7 @@ class TableRows extends RecursiveIteratorIterator {
 
         else{
 
-            if ($currentVar == ""){
-
-            $currentVar = "Unknown";
-
-            }
-
-            return "<div class='col-md-4'>
+            return "<div class='col-md-3'>
                     <p><b>" . $currentVar. "</b></p>
                     <br/>
                 </div>";
@@ -140,7 +132,7 @@ $dbname = "sys";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT `id`, `Agency Name`, `Distribution Site Address`, `Times of Distribution`, `Days of Distribution` FROM `sites`"); 
+    $stmt = $conn->prepare("SELECT `id`, `Agency Name`, `Distribution Site Address`, `Times of Distribution`, `Days of Distribution`,  FROM `sites`"); 
     $stmt->execute();
 
     // set the resulting array to associative
