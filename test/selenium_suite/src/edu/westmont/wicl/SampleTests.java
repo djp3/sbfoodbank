@@ -99,5 +99,17 @@ public class SampleTests {
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 	}
+	
+	@Test
+	public void testCallingNorth(){
+		//Vist the ally website
+		driver.get("http://localhost:8080");
+		
+		// Click on The thing
+		driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[1]/a")).click();
+		
+		
+		
+	}
 
 }
