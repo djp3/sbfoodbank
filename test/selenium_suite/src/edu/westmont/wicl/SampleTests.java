@@ -30,7 +30,7 @@ public class SampleTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		if(testLocal){
-			addresses.add("http://localhost:8080");
+			addresses.add("http://localhost:80");
 		}
 		if(testProduction){
 			addresses.add("http://djp3.westmont.edu/ally/ally/");
@@ -39,7 +39,7 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -96,8 +96,40 @@ public class SampleTests {
             }
         });
         
-        // Check the full title of the page
+        // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 	}
+	
+	@Test
+	public void testAboutHomeButton() {
+        // And now use this to visit the Ally - About page
+        //driver.get("file:///C:/Users/Matthew%20Coffman/Documents/sbfoodbank/ally/about.html");
+        driver.get("http://localhost/about.html");
+		
+        // Alternatively the same thing can be done like this
+        // driver.navigate().to("http://www.google.com");
+        
+        // Check the title of the page
+        assertTrue(driver.getTitle().equals("Ally - About"));
 
+        // Find the home button by its name
+        WebElement element = driver.findElement(By.name("return_home"));
+
+        // Click the found button
+        element.click();
+
+        // Now submit the form. WebDriver will find the form for us from the element
+        // element.submit();
+
+        // Wait for the page to load, timeout after 10 seconds
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	
+                return d.getTitle().toLowerCase().startsWith("ally");
+            }
+        });
+        
+        // Check the title of the page
+        assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+	}
 }
