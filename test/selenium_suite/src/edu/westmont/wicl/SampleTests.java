@@ -39,7 +39,7 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -98,6 +98,36 @@ public class SampleTests {
         
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
+	}
+	@Test
+	public void testFindFood() {
+        // And now use this to visit Google
+        driver.get("http://localhost:8080");
+        
+        // Alternatively the same thing can be done like this
+        // driver.navigate().to("http://www.google.com");
+        
+        // Check the title of the page
+        assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+        // Find the text input element by its name
+        WebElement element = driver.findElement(By.name("find_food_btn"));
+
+        // Enter something to search for
+        element.click();
+
+        // Now submit the form. WebDriver will find the form for us from the element
+        //element.submit();
+
+        // Wait for the page to load, timeout after 10 seconds
+        //(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+        //    public Boolean apply(WebDriver d) {
+        //       return d.getTitle().toLowerCase().startsWith("cheese!");
+        //    }
+        //});
+        
+        // Check the title of the page
+        assertTrue(driver.getTitle().equals("Ally - Find Food"));
 	}
 
 }
