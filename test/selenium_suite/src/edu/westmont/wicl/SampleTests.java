@@ -103,8 +103,9 @@ public class SampleTests {
 	@Test
 	public void testAboutHomeButton() {
         // And now use this to visit the Ally - About page
-        driver.get("file:///C:/Users/Matthew%20Coffman/Documents/sbfoodbank/ally/about.html");
-        
+        //driver.get("file:///C:/Users/Matthew%20Coffman/Documents/sbfoodbank/ally/about.html");
+        driver.get("http://localhost/about.html");
+		
         // Alternatively the same thing can be done like this
         // driver.navigate().to("http://www.google.com");
         
