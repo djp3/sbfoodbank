@@ -96,7 +96,7 @@ public class SampleTests {
             }
         });
         
-        // Check the title of the page
+        // Check the full title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 	}
 
