@@ -132,7 +132,7 @@ $dbname = "sys";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT `id`, `Agency Name`, `Distribution Site Address`, `Times of Distribution`, `Days of Distribution`,  FROM `sites`"); 
+    $stmt = $conn->prepare("SELECT `id`, `Agency Name`, `Distribution Site Address`, `Times of Distribution`, `Days of Distribution`, `Phone` FROM `sites`"); 
     $stmt->execute();
 
     // set the resulting array to associative

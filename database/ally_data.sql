@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `sites`
 --
 
+
+DROP TABLE IF EXISTS `sites`;
+
 CREATE TABLE `sites` (
   `id` int(11) UNSIGNED NOT NULL,
   `Agency Name` varchar(255) DEFAULT NULL,
