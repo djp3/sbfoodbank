@@ -39,12 +39,13 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
         driver = new ChromeDriver();
 	}
+	
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
@@ -98,6 +99,29 @@ public class SampleTests {
         
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
+	}
+	
+	
+	public void testCallSouthCountyFoodBank() {
+		
+		driver.get("localhost:8080");
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+			
+			driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/a")).click();
+			
+			
+			
+			//assertTrue(driver.getTitle().contains("Ally"));
+			
+			
+		}
+		
+		
+		
+		
 	}
 
 }
