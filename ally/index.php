@@ -13,8 +13,9 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="page-header">
-				<h1>Ally</h1>
+			<div class="page-header text-center">
+				<img class="bw_logo" src="img/\logos\black_and_white\black_on_clear.png"/>
+				<h4>Helping Others in Santa Barbara</h4>
 			</div>
 		</div>
 		<div class="container text-center">
@@ -28,7 +29,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="find-other.html" role="button">
+					<a class="btn btn-default btn-lg" href="find-other.php" role="button">
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						Find Other Resources
 					</a>
@@ -58,7 +59,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-lg-12">
-					<a class="btn btn-default btn-lg" href="about.html" role="button">
+					<a class="btn btn-default btn-lg" href="about.php" role="button">
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 						About
 						</a>
@@ -70,7 +71,7 @@
 			<div class="container">
 				<div class="row-fluid text-center">
 					<div class="col-sm-12">
-						<a class="btn btn-default btn-lg" href="feedback.html" role="button">
+						<a class="btn btn-default btn-lg" href="feedback.php" role="button">
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							Feedback
 						</a>
