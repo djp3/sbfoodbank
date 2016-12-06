@@ -54,9 +54,13 @@
 				$("#map").height(b_h-h_h-f_h);
 
 
-				<?php $query = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+				<?php 
+
+				// Pull the where parameter off the URL, default to "" if it's
+				// not present
+				$query = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 				parse_str($query, $params);
-				$where = $params['where'];
+				$where = isset($params['where']) ? $params['where'] : "";
 				
 
 				class TableRows extends RecursiveIteratorIterator { 
@@ -92,14 +96,20 @@
 				} 
 
 				$servername = "localhost";
-				$username = "username";
-				$password = "password";
+				$username = "ally_user";
+				$password = "ally_user_password";
 				$dbname = "ally";
 
 				try {
     				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    				$stmt = $conn->prepare("SELECT `Distribution Site Address`,City,State,Zip FROM sites WHERE ". urldecode($where)); 
+					//If $where wasn't specified in the url plot the first 100
+					if(is_null($where) || ($where=="")){
+    					$stmt = $conn->prepare("SELECT `Distribution Site Address`,City,State,Zip FROM sites LIMIT 100"); 
+					}
+					else{
+						$stmt = $conn->prepare("SELECT `Distribution Site Address`,City,State,Zip FROM sites WHERE ". urldecode($where)); 
+					}
     				$stmt->execute();
     				echo "var locations_to_plot=[";
 
