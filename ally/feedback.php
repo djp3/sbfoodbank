@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
-		<title>Ally - About</title>
+		<title>Ally - Feedback</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>

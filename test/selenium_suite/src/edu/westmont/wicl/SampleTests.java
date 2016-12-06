@@ -146,14 +146,29 @@ public class SampleTests {
         // Now submit the form. WebDriver will find the form for us from the element
         //element.submit();
 
-        // Wait for the page to load, timeout after 10 seconds
-        //(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-        //    public Boolean apply(WebDriver d) {
-        //       return d.getTitle().toLowerCase().startsWith("cheese!");
-        //    }
-        //});
-        
+     // Wait for the page to load, timeout after 10 seconds
+		(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver d) {
+				System.err.println(d.getTitle());
+				return d.getTitle().toLowerCase().startsWith("Ally");
+			}
+		});
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Ally - Find Food"));
 	}
+	
+	@Test
+	public void testFeedback(){
+		driver.get("http://localhost:8080");
+		
+		WebElement element = driver.findElement(By.name("feedback_btn"));
+		
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		
+		executor.executeScript("arguments[0].click()", element);
+		
+		assertTrue(driver.getTitle().equals("Ally - Feedback"));
+		
+	}
+
 }

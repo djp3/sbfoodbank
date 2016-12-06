@@ -71,7 +71,7 @@
 			<div class="container">
 				<div class="row-fluid text-center">
 					<div class="col-sm-12">
-						<a class="btn btn-default btn-lg" href="feedback.php" role="button">
+						<a class="btn btn-default btn-lg" href="feedback.php" role="button" name="feedback_btn">
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							Feedback
 						</a>
