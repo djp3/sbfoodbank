@@ -29,7 +29,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="find-other.php" role="button">
+					<a class="btn btn-default btn-lg" href="find-other.php" role="button" name="find_other_resources_btn">
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						Find Other Resources
 					</a>
