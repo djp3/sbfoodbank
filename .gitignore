@@ -11,8 +11,12 @@ version.ini
 
 ####
 #Ignores for test suites
-#The canonical place for the chromedriver executable
+#The canonical place for the chromedriver executables
+	#Mac
 test/chromedriver
+	#Windows
+test/chromedriver.exe
+
 #Generated files
 test/selenium_suite/target
 test/selenium_suite/.metadata/.lock
