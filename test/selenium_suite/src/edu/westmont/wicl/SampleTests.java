@@ -40,7 +40,13 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
+		if(System.getProperty("os.name").contains("indows")){
+			System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
+		}
+		else{
+			System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		}
+		
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -86,7 +92,6 @@ public class SampleTests {
 			// Wait for the page to load, timeout after 10 seconds
 			(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
 				public Boolean apply(WebDriver d) {
-					System.err.println(d.getTitle());
 					return d.getTitle().toLowerCase().startsWith("donate");
 				}
 			});
