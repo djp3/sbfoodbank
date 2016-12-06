@@ -73,34 +73,27 @@ public class SampleTests {
 	@Test
 	public void testDonate() {
 		
-		
-		
-        driver.get("http://localhost:8080");
+		for(String address:addresses){
+			driver.get(address);
         
-        assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
         
-       
-        WebElement element =  driver.findElement(By.name("donatebutton"));
+			WebElement element =  driver.findElement(By.name("donatebutton"));
         
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
         
-        executor.executeScript("arguments[0].click();", element);
+			// Wait for the page to load, timeout after 10 seconds
+			(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver d) {
+					System.err.println(d.getTitle());
+					return d.getTitle().toLowerCase().startsWith("donate");
+				}
+			});
         
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-            	System.err.println(d.getTitle());
-                return d.getTitle().toLowerCase().startsWith("donate");
-            }
-        });
-        
-        
-		assertTrue(driver.getTitle().equals("Donate to Foodbank of Santa Barbara County | Classy"));
-		
-		// Donate to the Foodbank of Santa Barbara County | Classy
-					
-			
+			assertTrue(driver.getTitle().equals("Donate to Foodbank of Santa Barbara County | Classy"));
 		}
+	}
 
 	@Test
 	public void testGoogleCheeseQuery() {
