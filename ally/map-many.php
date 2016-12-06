@@ -15,6 +15,7 @@
 		<div id="header" class="container">
 			<div class="page-header">
 				<h3>Map Many</h3>
+				
 			</div>
 		</div>
 		<div id="map">
@@ -52,14 +53,80 @@
 				var f_h = b_h- $("footer.footer").position().top;
 				$("#map").height(b_h-h_h-f_h);
 
-				var loc1 = {lat: 34.4208, lng: -119.6982};
-				var loc2 = {lat: 34.4071879, lng: -119.8289736};
+
+				<?php $query = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+				parse_str($query, $params);
+				$where = $params['where'];
+				
+
+				class TableRows extends RecursiveIteratorIterator { 
+    				function __construct($it) { 
+        				parent::__construct($it, self::LEAVES_ONLY); 
+    				}
+
+    				function current() {
+						
+
+						if(parent::key() == "Distribution Site Address"){
+							return parent::current().",";
+						}
+						if(parent::key() == "City"){
+							return parent::current().",";
+						}
+						if(parent::key() == "State"){
+							return parent::current().",";
+						}
+						if(parent::key() == "Zip"){
+							return parent::current();
+						}
+						return "";
+    				}
+
+    				function beginChildren() { 
+        				echo "\""; 
+    				} 
+
+    				function endChildren() { 
+       					echo "\"," . "\n";
+    				} 
+				} 
+
+				$servername = "localhost";
+				$username = "username";
+				$password = "password";
+				$dbname = "ally";
+
+				try {
+    				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    				$stmt = $conn->prepare("SELECT `Distribution Site Address`,City,State,Zip FROM sites WHERE ". urldecode($where)); 
+    				$stmt->execute();
+    				echo "var locations_to_plot=[";
+
+    				// set the resulting array to associative
+    				$result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    				foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
+        				echo $v;
+    				}
+    				echo "];";
+				}
+				catch(PDOException $e) {
+    				echo "Error: " . $e->getMessage();
+				}
+				$conn = null;
+				?>
+
+				
+				
         		var map = new google.maps.Map(document.getElementById('map'), {
 					zoom: 4,
-					center: loc1
+					center: {lat:34.4208,lng:-119.6982}
 				});
-				var marker1 = new google.maps.Marker({position: loc1,map: map});
-				var marker2 = new google.maps.Marker({position: loc2,map: map})
+				for(var i=0;i<locations_to_plot.length;i++){
+					var x=reverse_geocode(locations_to_plot[i]);
+					new google.maps.Marker({position: x,map: map});
+
+				}
 			}
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAivupYZInhP_RsRvPW5NByQy7qcCcoa0U&callback=ally_initMap"></script>
