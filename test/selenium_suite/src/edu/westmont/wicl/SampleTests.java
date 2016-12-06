@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -68,6 +69,38 @@ public class SampleTests {
 			assertTrue(driver.getTitle().contains("Ally"));
 		}
 	}
+	
+	@Test
+	public void testDonate() {
+		
+		
+		
+        driver.get("http://localhost:8080");
+        
+        assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+        
+       
+        WebElement element =  driver.findElement(By.name("donatebutton"));
+        
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        
+        executor.executeScript("arguments[0].click();", element);
+        
+        // Wait for the page to load, timeout after 10 seconds
+        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+            	System.err.println(d.getTitle());
+                return d.getTitle().toLowerCase().startsWith("donate");
+            }
+        });
+        
+        
+		assertTrue(driver.getTitle().equals("Donate to Foodbank of Santa Barbara County | Classy"));
+		
+		// Donate to the Foodbank of Santa Barbara County | Classy
+					
+			
+		}
 
 	@Test
 	public void testGoogleCheeseQuery() {
@@ -99,5 +132,7 @@ public class SampleTests {
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 	}
+	
+
 
 }
