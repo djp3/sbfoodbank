@@ -76,8 +76,48 @@ public class SampleTests {
 		}
 	}
 	
+
 	@Test
-	public void testDonate() {
+	public void testButtonFindFood() {
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+			// Find the text input element by its name
+			WebElement element = driver.findElement(By.name("find_food_btn"));
+
+			element.click();
+
+			assertTrue(driver.getTitle().equals("Ally - Find Food"));
+		}
+	}
+	
+	
+	@Test
+	public void testButtonFindOtherResources() {
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+			// Find the text input element by its name
+			WebElement element = driver.findElement(By.name("find_other_resources_btn"));
+
+			// Enter something to search for
+			element.click();
+
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Find Other Resorces"));
+		}
+	}
+	
+	@Test
+	public void testButtonDonate() {
 		
 		for(String address:addresses){
 			driver.get(address);
@@ -103,42 +143,4 @@ public class SampleTests {
 	
 	
 
-	@Test
-	public void testFindFoodButton() {
-		
-		for(String address:addresses){
-			driver.get(address);
-        
-			// Check the title of the page
-			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
-
-			// Find the text input element by its name
-			WebElement element = driver.findElement(By.name("find_food_btn"));
-
-			element.click();
-
-			assertTrue(driver.getTitle().equals("Ally - Find Food"));
-		}
-	}
-	
-	
-	@Test
-	public void findOtherResources() {
-		
-		for(String address:addresses){
-			driver.get(address);
-        
-			// Check the title of the page
-			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
-
-			// Find the text input element by its name
-			WebElement element = driver.findElement(By.name("find_other_resources_btn"));
-
-			// Enter something to search for
-			element.click();
-
-			// Check the title of the page
-			assertTrue(driver.getTitle().equals("Ally - Find Other Resorces"));
-		}
-	}
 }
