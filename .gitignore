@@ -1,7 +1,8 @@
 #Individual workspace settings
 .editorconfig
+version.ini
 
-#Temporary editor buffers for vi
+#Temporaryteditor buffers for vi
 *.swp
 
 #Ignore files from someone's local machine

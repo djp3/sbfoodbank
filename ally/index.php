@@ -51,7 +51,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="https://donate.foodbanksbc.org/" role="button">
+					<a class="btn btn-default btn-lg" href="https://donate.foodbanksbc.org/" role="button" name="donatebutton">
 						<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
 						Donate to the FoodBank
 					</a>
@@ -59,7 +59,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-lg-12">
-					<a class="btn btn-default btn-lg" href="about.php" role="button">
+					<a class="btn btn-default btn-lg" href="about.html" role="button" name="aboutbutton">
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 						About
 						</a>
