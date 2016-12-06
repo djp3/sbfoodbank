@@ -21,8 +21,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SampleTests {
 	
-	static Boolean testProduction = true;
-	static Boolean testStaging = true;
+	static Boolean testProduction = false;
+	static Boolean testStaging = false;
 	static Boolean testLocal = true;
 	static WebDriver driver;
 	static List<String> addresses = new ArrayList<String>();
