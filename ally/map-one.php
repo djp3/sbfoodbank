@@ -14,7 +14,7 @@
 	<body>
 		<div id="header" class="container">
 			<div class="page-header">
-				<h1>Ally <small>Map Many</small></h1>
+				<h3>Map One</h3>
 			</div>
 		</div>
 		<div id="map">
@@ -23,14 +23,14 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="row-fluid text-center">
-					<div class="col-sm-6">
-						<a class="btn btn-default btn-lg" href="index.html" role="button">
-							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					<div class="col-xs-6">
+						<a class="btn btn-default btn-lg" href="index.php" role="button">
+							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
 							Home
 						</a>
 					</div>
-					<div class="col-sm-6">
-						<a class="btn btn-default btn-lg" href="feedback.html" role="button">
+					<div class="col-xs-6">
+						<a class="btn btn-default btn-lg" href="feedback.php" role="button">
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							Feedback
 						</a>
@@ -52,14 +52,16 @@
 				var f_h = b_h- $("footer.footer").position().top;
 				$("#map").height(b_h-h_h-f_h);
 
-				var loc1 = {lat: 34.4208, lng: -119.6982};
-				var loc2 = {lat: 34.4071879, lng: -119.8289736};
-        		var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 4,
-					center: loc1
+
+				var uluru = {
+					lat: 34.4208,
+					lng: -119.6982
+				};
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 12,
+					center: uluru
 				});
-				var marker1 = new google.maps.Marker({position: loc1,map: map});
-				var marker2 = new google.maps.Marker({position: loc2,map: map})
+				var marker1 = new google.maps.Marker({position: uluru,map: map});
 			}
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAivupYZInhP_RsRvPW5NByQy7qcCcoa0U&callback=ally_initMap"></script>
