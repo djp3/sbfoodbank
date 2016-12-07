@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
-		<title>Ally - Find Other Resorces</title>
+		<title>Ally - Find Other Resources</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -1226,13 +1226,13 @@
 			<div class="container">
 				<div class="row-fluid text-center">
 					<div class="col-xs-6">
-						<a class="btn btn-default btn-lg" href="index.php" role="button">
+						<a class="btn btn-default btn-lg" href="index.php" role="button" name="home_button">
 							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
 							Home
 						</a>
 					</div>
 					<div class="col-xs-6">
-						<a class="btn btn-default btn-lg" href="feedback.php" role="button">
+						<a class="btn btn-default btn-lg" href="feedback.php" role="button" name="feedback_button">
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							Feedback
 						</a>
