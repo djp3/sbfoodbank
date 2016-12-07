@@ -44,7 +44,7 @@
 				            if (parent::key() == "Distribution Site Address") {
 ?>
 				<div class="col-sm-6">
-					<a class="btn btn-default btn-lg" href="map-one.html?address=<?php echo urlencode(parent::current()); ?>" role="button">
+					<a class="btn btn-default btn-lg" href="map-one.php?address=<?php echo urlencode(parent::current()); ?>" role="button">
 				   		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 				       		Map
 					</a> 
@@ -52,7 +52,7 @@
 				   		<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 				       		Call
 					</a> 
-					<a class="btn btn-default btn-lg" href="share.html?info=<?php echo urlencode($agencyname . " " .parent::current() . " " .$phonenum); ?>" role="button">
+					<a class="btn btn-default btn-lg" href="share.php?info=<?php echo urlencode($agencyname . " " .parent::current() . " " .$phonenum); ?>" role="button">
 				   		<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
 							Share
 					</a> 
