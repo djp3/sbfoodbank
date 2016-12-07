@@ -129,12 +129,18 @@
 				
 				
         		var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 4,
+					zoom: 9,
 					center: {lat:34.4208,lng:-119.6982}
 				});
 				for(var i=0;i<locations_to_plot.length;i++){
-					var x=reverse_geocode(locations_to_plot[i]);
-					new google.maps.Marker({position: x,map: map});
+					reverse_geocode(locations_to_plot[i],function(newlat, newlng) {
+						myPoint={
+                			lat : newlat,
+                			lng : newlng
+						};
+                		new google.maps.Marker({position: myPoint,map: map});
+						map.setCenter(myPoint);
+                	}); 
 
 				}
 			}
