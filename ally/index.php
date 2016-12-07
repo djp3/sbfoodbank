@@ -21,7 +21,7 @@
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="find-food.php" role="button" name="find_food_button">
+					<a class="btn btn-default btn-lg" href="find-food.php" role="button" id="find_food_button">
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						Find Food
 					</a>
@@ -29,7 +29,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="find-other.php" role="button" name="find_other_resources_button">
+					<a class="btn btn-default btn-lg" href="find-other.php" role="button" id="find_other_resources_button">
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						Find Other Resources
 					</a>
@@ -51,7 +51,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="https://donate.foodbanksbc.org/" role="button" name="donate_button">
+					<a class="btn btn-default btn-lg" href="https://donate.foodbanksbc.org/" role="button" id="donate_button">
 						<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
 						Donate to the FoodBank
 					</a>
@@ -59,7 +59,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-lg-12">
-					<a class="btn btn-default btn-lg" href="about.php" role="button" name="about_button">
+					<a class="btn btn-default btn-lg" href="about.php" role="button" id="about_button">
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 						About
 						</a>
@@ -71,7 +71,7 @@
 			<div class="container">
 				<div class="row-fluid text-center">
 					<div class="col-sm-12">
-						<a class="btn btn-default btn-lg" href="feedback.php" role="button" name="feedback_button">
+						<a class="btn btn-default btn-lg" href="feedback.php" role="button" id="feedback_button">
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							Feedback
 						</a>

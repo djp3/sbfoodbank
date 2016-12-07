@@ -45,7 +45,7 @@
 			<div class="container">
 				<div class="row-fluid text-center">
 					<div class="col-xs-12">
-						<a class="btn btn-default btn-lg" href="index.php" role="button" name="home_button">
+						<a class="btn btn-default btn-lg" href="index.php" role="button" id="home_button">
 							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
 							Home
 						</a>

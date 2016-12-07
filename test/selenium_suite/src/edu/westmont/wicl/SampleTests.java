@@ -115,7 +115,7 @@ public class SampleTests {
 			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
 
 			// Find the text input element by its name
-			WebElement element = driver.findElement(By.name("find_food_button"));
+			WebElement element = driver.findElement(By.id("find_food_button"));
 
 			element.click();
 
@@ -134,7 +134,7 @@ public class SampleTests {
 			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
 
 			// Find the text input element by its name
-			WebElement element = driver.findElement(By.name("find_other_resources_button"));
+			WebElement element = driver.findElement(By.id("find_other_resources_button"));
 
 			// Enter something to search for
 			element.click();
@@ -152,7 +152,7 @@ public class SampleTests {
         
 			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
         
-			WebElement element =  driver.findElement(By.name("donate_button"));
+			WebElement element =  driver.findElement(By.id("donate_button"));
         
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -182,7 +182,7 @@ public class SampleTests {
 				assertTrue(driver.getTitle().equals(e.getValue()));
 
 				// Find the home button by its name
-				WebElement element = driver.findElement(By.name("home_button"));
+				WebElement element = driver.findElement(By.id("home_button"));
 
 				// Click the found button
 				element.click();
