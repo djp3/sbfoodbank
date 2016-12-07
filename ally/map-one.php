@@ -45,25 +45,85 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
 		<script>
-      		function ally_initMap(){
-				// A little jquery hacking to get the size that the map should be
-				var b_h = $(window).height();
-				var h_h = $("#header").height();
-				var f_h = b_h- $("footer.footer").position().top;
-				$("#map").height(b_h-h_h-f_h);
 
 
-				var uluru = {
-					lat: 34.4208,
-					lng: -119.6982
-				};
-				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 12,
-					center: uluru
-				});
-				var marker1 = new google.maps.Marker({position: uluru,map: map});
-			}
-		</script>
+			function getParameterByName(name, url) {
+                if (!url) {
+                  url = window.location.href;
+                }
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            };
+
+              function ally_initMap(){
+                // A little jquery hacking to get the size that the map should be
+                var b_h = $(window).height();
+                var h_h = $("#header").height();
+                var f_h = b_h- $("footer.footer").position().top;
+                $("#map").height(b_h-h_h-f_h);
+
+                var lat;
+                var lng;
+
+                var uluru = {
+                    lat: parseFloat(lat),
+                    lng: parseFloat(lng)
+                };
+
+                //var lat = getParameterByName('lat');
+                //var lng = getParameterByName('lng');
+                var address = getParameterByName('address');
+
+                //If there was no address that was passed in then set the lat and lon
+                if(address == null){
+                	console.log('The address was not passed in');
+                	uluru.lat = 34.4208;
+                	uluru.lng = -119.6982;
+
+                	//Defualt map
+                	var map = new google.maps.Map(document.getElementById('map'), {
+                		zoom: 12,
+                		center: uluru
+                	});
+                	var marker1 = new google.maps.Marker({position: uluru,map: map});
+
+
+                }
+                else{
+
+                	var geocoder = new google.maps.Geocoder();
+                //var address = "new york";
+
+                
+
+                geocoder.geocode( { 'address': address}, function(results, status) {
+
+                	if (status == google.maps.GeocoderStatus.OK) {
+                		lat = parseFloat(results[0].geometry.location.lat());
+                		lng = parseFloat(results[0].geometry.location.lng());
+                		uluru.lat = lat
+                		uluru.lng = lng;
+                		console.log(uluru.lng);
+                		console.log(uluru.lat);
+
+                		var map = new google.maps.Map(document.getElementById('map'), {
+                			zoom: 12,
+                			center: uluru
+                		});
+                		var marker1 = new google.maps.Marker({position: uluru,map: map});
+
+                	} 
+                }); 
+
+                }
+                
+
+            }
+        </script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAivupYZInhP_RsRvPW5NByQy7qcCcoa0U&callback=ally_initMap"></script>
 	</body>
 </html>
