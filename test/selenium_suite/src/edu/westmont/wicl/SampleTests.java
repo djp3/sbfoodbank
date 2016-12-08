@@ -31,7 +31,7 @@ public class SampleTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		if(testLocal){
-			addresses.add("http://localhost:8080");
+			addresses.add("http://localhost:8080/ally");
 		}
 		if(testProduction){
 			addresses.add("http://djp3.westmont.edu/ally/ally/");
@@ -76,9 +76,29 @@ public class SampleTests {
 		}
 	}
 	
+	@Test
+	public void testAboutButton(){
+		
+		for(String address:addresses){
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+	        
+			WebElement element =  driver.findElement(By.name("aboutbutton"));
+        
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			
+			//maximize the brow
+			driver.manage().window().maximize();
+			
+			executor.executeScript("arguments[0].click();", element);
+			
+			System.out.println(driver.getTitle());
+			assertTrue(driver.getTitle().equals("404 Not Found"));
+		}
+	}
+	
 
 	@Test
-	public void testButtonFindFood() {
+	public void test_IndexPhp_ButtonFindFood() {
 		
 		for(String address:addresses){
 			driver.get(address);
@@ -87,7 +107,7 @@ public class SampleTests {
 			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
 
 			// Find the text input element by its name
-			WebElement element = driver.findElement(By.name("find_food_btn"));
+			WebElement element = driver.findElement(By.name("find_food_button"));
 
 			element.click();
 

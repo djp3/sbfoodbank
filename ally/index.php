@@ -21,7 +21,7 @@
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="find-food.php" role="button" name="find_food_btn">
+					<a class="btn btn-default btn-lg" href="find-food.php" role="button" name="find_food_button">
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						Find Food
 					</a>
@@ -43,7 +43,7 @@
 					</a>
 				</div>
 				<div class="col-md-6">
-					<a class="btn btn-default btn-lg" href="tel:+1-805-967-5741" role="button">
+					<a id="call_south_button" class="btn btn-default btn-lg" href="tel:+1-805-967-5741" role="button">
 						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 						Call South County FoodBank
 					</a>
@@ -59,7 +59,7 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-lg-12">
-					<a class="btn btn-default btn-lg" href="about.php" role="button" name="aboutbutton">
+					<a name="aboutbutton" class="btn btn-default btn-lg" href="about.php" role="button">
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 						About
 						</a>
