@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,7 +40,17 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
+<<<<<<< HEAD
 		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
+=======
+		if(System.getProperty("os.name").contains("indows")){
+			System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
+		}
+		else{
+			System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		}
+	
+>>>>>>> 537bfa9bf07f338076d7c8d0c48ebca922619536
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -67,6 +78,30 @@ public class SampleTests {
 			driver.get(address);
         
 			assertTrue(driver.getTitle().contains("Ally"));
+		}
+	}
+	
+	@Test
+	public void testDonate() {
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+        
+			WebElement element =  driver.findElement(By.name("donatebutton"));
+        
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", element);
+        
+			// Wait for the page to load, timeout after 10 seconds
+			(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver d) {
+					return d.getTitle().toLowerCase().startsWith("donate");
+				}
+			});
+        
+			assertTrue(driver.getTitle().equals("Donate to Foodbank of Santa Barbara County | Classy"));
 		}
 	}
 
@@ -98,17 +133,42 @@ public class SampleTests {
         });
         
         // Check the title of the page
-        assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
+        assertTrue(driver.getTitle().startsWith("Cheese! - Google"));
 	}
 	
-	
-	public void testCallSouthCountyFoodBank() {
-		
-		driver.get("localhost:8080");
+
+	@Test
+	public void testFindFoodButton() {
 		
 		for(String address:addresses){
 			driver.get(address);
         
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+			// Find the text input element by its name
+			WebElement element = driver.findElement(By.name("find_food_btn"));
+
+			element.click();
+
+			assertTrue(driver.getTitle().equals("Ally - Find Food"));
+		}
+	}
+	
+	
+<<<<<<< HEAD
+	public void testCallSouthCountyFoodBank() {
+		
+		driver.get("localhost:8080");
+=======
+	@Test
+	public void findOtherResources() {
+>>>>>>> 537bfa9bf07f338076d7c8d0c48ebca922619536
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+<<<<<<< HEAD
 			
 			driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/a")).click();
 			
@@ -123,5 +183,19 @@ public class SampleTests {
 		
 		
 	}
+=======
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+>>>>>>> 537bfa9bf07f338076d7c8d0c48ebca922619536
 
+			// Find the text input element by its name
+			WebElement element = driver.findElement(By.name("find_other_resources_btn"));
+
+			// Enter something to search for
+			element.click();
+
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Find Other Resorces"));
+		}
+	}
 }

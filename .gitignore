@@ -1,7 +1,8 @@
 #Individual workspace settings
 .editorconfig
+version.ini
 
-#Temporary editor buffers for vi
+#Temporaryteditor buffers for vi
 *.swp
 
 #Ignore files from someone's local machine
@@ -10,8 +11,12 @@
 
 ####
 #Ignores for test suites
-#The canonical place for the chromedriver executable
+#The canonical place for the chromedriver executables
+	#Mac
 test/chromedriver
+	#Windows
+test/chromedriver.exe
+
 #Generated files
 test/selenium_suite/target
 test/selenium_suite/.metadata/.lock
