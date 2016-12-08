@@ -3,7 +3,10 @@ package edu.westmont.wicl;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -21,11 +24,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SampleTests {
 	
-	static Boolean testProduction = true;
-	static Boolean testStaging = true;
+	static Boolean testProduction = false;
+	static Boolean testStaging = false;
 	static Boolean testLocal = true;
 	static WebDriver driver;
 	static List<String> addresses = new ArrayList<String>();
+	static Map<String,String> allpages = new HashMap<String,String>();
 
 	
 	@BeforeClass
@@ -34,13 +38,28 @@ public class SampleTests {
 			addresses.add("http://localhost:8080");
 		}
 		if(testProduction){
-			addresses.add("http://djp3.westmont.edu/ally/ally/");
+			addresses.add("http://djp3.westmont.edu/ally/ally");
 		}
 		if(testStaging){
-			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
+			addresses.add("http://djp3.westmont.edu/ally_staging/ally");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
+		if(System.getProperty("os.name").contains("indows")){
+			System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
+		}
+		else{
+			System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		}
+
+		allpages.put("/about.php","Ally - About");
+		allpages.put("/feedback.php","Ally - Feedback");
+		allpages.put("/find-food.php","Ally - Find Food");
+		allpages.put("/find-other.php","Ally - Find Other Resources");
+		allpages.put("/index.php","Ally - Santa Barbara FoodBank");
+		allpages.put("/map-many.php","Ally - Partner Locator");
+		allpages.put("/map-one.php","Ally - Partner Locator");
+		allpages.put("/share.php","Ally - Share");
+		
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -63,22 +82,77 @@ public class SampleTests {
 	@Test
 	public void testSystemUp() {
 		
+		//Test that the system is up and that all the static variables are correct
+		for(String address:addresses){
+			Map<String,String> pagesToTest = new HashMap<String,String>();
+			pagesToTest.putAll(allpages);
+
+			for (Entry<String, String> e : pagesToTest.entrySet()) {
+				driver.get(address + e.getKey());
+
+				try{
+					// Check the title of the page
+					assertTrue(driver.getTitle().equals(e.getValue()));
+				}
+				catch(AssertionError ex){
+					System.err.print("Failed on this page:"+e.toString());
+					throw(ex);
+				}
+					
+					
+			}
+		}
+	}
+	
+
+	@Test
+	public void test_IndexPhp_ButtonFindFood() {
+		
 		for(String address:addresses){
 			driver.get(address);
         
-			assertTrue(driver.getTitle().contains("Ally"));
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+			// Find the text input element by its name
+			WebElement element = driver.findElement(By.id("find_food_button"));
+
+			element.click();
+
+			assertTrue(driver.getTitle().equals("Ally - Find Food"));
+		}
+	}
+	
+	
+	@Test
+	public void test_IndexPhp_ButtonFindOtherResources() {
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+			// Find the text input element by its name
+			WebElement element = driver.findElement(By.id("find_other_resources_button"));
+
+			// Enter something to search for
+			element.click();
+
+			// Check the title of the page
+			assertTrue(driver.getTitle().equals("Ally - Find Other Resources"));
 		}
 	}
 	
 	@Test
-	public void testDonate() {
+	public void test_IndexPhp_ButtonDonate() {
 		
 		for(String address:addresses){
 			driver.get(address);
         
 			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
         
-			WebElement element =  driver.findElement(By.name("donatebutton"));
+			WebElement element =  driver.findElement(By.id("donate_button"));
         
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", element);
@@ -86,7 +160,6 @@ public class SampleTests {
 			// Wait for the page to load, timeout after 10 seconds
 			(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
 				public Boolean apply(WebDriver d) {
-					System.err.println(d.getTitle());
 					return d.getTitle().toLowerCase().startsWith("donate");
 				}
 			});
@@ -96,64 +169,34 @@ public class SampleTests {
 	}
 
 	@Test
-	public void testGoogleCheeseQuery() {
-        // And now use this to visit Google
-        driver.get("http://www.google.com");
-        
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
-        
-        // Check the title of the page
-        assertTrue(driver.getTitle().equals("Google"));
+	public void test_ButtonHome() {
+		for (String address : addresses) {
+			Map<String,String> pagesToTest = new HashMap<String,String>();
+			pagesToTest.putAll(allpages);
+			pagesToTest.remove("/index.php"); // The home page doesn't have a home button
 
-        // Find the text input element by its name
-        WebElement element = driver.findElement(By.name("q"));
+			for (Entry<String, String> e : pagesToTest.entrySet()) {
+				driver.get(address + e.getKey());
 
-        // Enter something to search for
-        element.sendKeys("Cheese!");
+				// Check the title of the page
+				assertTrue(driver.getTitle().equals(e.getValue()));
 
-        // Now submit the form. WebDriver will find the form for us from the element
-        element.submit();
+				// Find the home button by its name
+				WebElement element = driver.findElement(By.id("home_button"));
 
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().startsWith("cheese!");
-            }
-        });
-        
-        // Check the title of the page
-        assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
-	}
-	
-	@Test
-	public void testFindFood() {
-        // And now use this to visit Google
-        driver.get("http://localhost:8080");
-        
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
-        
-        // Check the title of the page
-        assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+				// Click the found button
+				element.click();
 
-        // Find the text input element by its name
-        WebElement element = driver.findElement(By.name("find_food_btn"));
+				// Wait for the page to load, timeout after 10 seconds
+				(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
+					public Boolean apply(WebDriver d) {
+						return d.getTitle().toLowerCase().startsWith("ally");
+					}
+				});
 
-        // Enter something to search for
-        element.click();
-
-        // Now submit the form. WebDriver will find the form for us from the element
-        //element.submit();
-
-        // Wait for the page to load, timeout after 10 seconds
-        //(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-        //    public Boolean apply(WebDriver d) {
-        //       return d.getTitle().toLowerCase().startsWith("cheese!");
-        //    }
-        //});
-        
-        // Check the title of the page
-        assertTrue(driver.getTitle().equals("Ally - Find Food"));
+				// Check the title of the page
+				assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+			}
+		}
 	}
 }
