@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,9 +30,9 @@ public class SampleTests {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		if(testLocal){
-			addresses.add("http://localhost:8080");
-		}
+	//	if(testLocal){
+		//	addresses.add("http://localhost:8080");
+	//	}
 		if(testProduction){
 			addresses.add("http://djp3.westmont.edu/ally/ally/");
 		}
@@ -68,47 +69,23 @@ public class SampleTests {
 			assertTrue(driver.getTitle().contains("Ally"));
 		}
 	}
-
-	@Test
-	public void testGoogleCheeseQuery() {
-        // And now use this to visit Google
-        driver.get("http://www.google.com");
-        
-        // Alternatively the same thing can be done like this
-        // driver.navigate().to("http://www.google.com");
-        
-        // Check the title of the page
-        assertTrue(driver.getTitle().equals("Google"));
-
-        // Find the text input element by its name
-        WebElement element = driver.findElement(By.name("q"));
-
-        // Enter something to search for
-        element.sendKeys("Cheese!");
-
-        // Now submit the form. WebDriver will find the form for us from the element
-        element.submit();
-
-        // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().startsWith("cheese!");
-            }
-        });
-        
-        // Check the title of the page
-        assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
-	}
 	
 	@Test
 	public void testCallingNorth(){
 		//Vist the ally website
-		driver.get("http://localhost:8080");
+		for(String address:addresses){
+			driver.get(address);
+        
+			assertTrue(driver.getTitle().contains("Ally"));
+		}
 		
 		// Click on The thing
-		driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[1]/a")).click();
+		WebElement button = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[1]/a"));
 		
+		JavascriptExecutor exec = (JavascriptExecutor)driver;
+		exec.executeScript("arguments[0].click()", button);
 		
+		assertTrue(driver.getPageSource().contains("tel:1-805-937-3422"));
 		
 	}
 
