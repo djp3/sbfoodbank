@@ -30,7 +30,7 @@
 				            global $phonenum;
 				            if (parent::key() == "Agency Name") {
 ?> 
-				<div class="col-sm-6" style="font-size: 130%; height: 46px; border-bottom: dashed gray 1px">
+				<div class="col-sm-6 find-food-agency">
 <?php
 				                $agencyname = parent::current();
 								echo $agencyname."\n"
@@ -43,7 +43,7 @@
 				            } 
 				            if (parent::key() == "Distribution Site Address") {
 ?>
-				<div class="col-sm-6" style="height: 46px; border-bottom: dashed gray 1px">
+				<div class="col-sm-6">
 					<a class="btn btn-default btn-lg" href="map-one.php?address=<?php echo urlencode(parent::current()); ?>" role="button">
 				   		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 				       		Map
@@ -63,7 +63,7 @@
 
 						function beginChildren() { 
 ?>
-			<div class="row-fluid text-center">
+			<div class="row-fluid text-center find-food-row">
 <?php
 						} 
 
