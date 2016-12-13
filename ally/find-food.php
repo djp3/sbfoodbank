@@ -14,7 +14,7 @@
 	<body>
 		<div class="container">
 			<div class="page-header">
-				<h1>Ally <small>Find Food</small></h1>
+				<h3>Find Food</h3>
 			</div>
 		</div>
 
@@ -30,7 +30,7 @@
 				            global $phonenum;
 				            if (parent::key() == "Agency Name") {
 ?> 
-				<div class="col-sm-6">
+				<div class="col-sm-6 find-food-agency">
 <?php
 				                $agencyname = parent::current();
 								echo $agencyname."\n"
@@ -63,7 +63,7 @@
 
 						function beginChildren() { 
 ?>
-			<div class="row-fluid text-center">
+			<div class="row-fluid text-center find-food-row">
 <?php
 						} 
 
