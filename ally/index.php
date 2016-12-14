@@ -37,13 +37,13 @@
 			</div>
 			<div class="row-fluid">
 				<div class="col-md-6">
-					<a class="btn btn-default btn-lg" href="tel:1-805-937-3422" role="button">
+					<a class="btn btn-default btn-lg" href="tel:1-805-937-3422" role="button" id="call_north_county_foodbank_button">
 						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 						Call North County FoodBank
 					</a>
 				</div>
 				<div class="col-md-6">
-					<a class="btn btn-default btn-lg" href="tel:+1-805-967-5741" role="button">
+					<a class="btn btn-default btn-lg" href="tel:1-805-967-5741" role="button"id="call_south_county_foodbank_button">
 						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 						Call South County FoodBank
 					</a>

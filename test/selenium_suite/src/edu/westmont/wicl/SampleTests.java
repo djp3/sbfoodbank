@@ -144,6 +144,39 @@ public class SampleTests {
 		}
 	}
 	
+
+	@Test
+	public void test_IndexPhp_ButtonCallingNorth(){
+		for(String address:addresses){
+			driver.get(address);
+        
+			assertTrue(driver.getTitle().contains("Ally"));
+		
+			WebElement button = driver.findElement(By.id("call_north_county_foodbank_button"));
+		
+			JavascriptExecutor exec = (JavascriptExecutor)driver;
+			exec.executeScript("arguments[0].click()", button);
+		
+			assertTrue(driver.getPageSource().contains("tel:1-805-937-3422"));
+		}
+	}
+	
+	@Test
+	public void test_IndexPhp_ButtonCallingSouth(){
+		for(String address:addresses){
+			driver.get(address);
+        
+			assertTrue(driver.getTitle().contains("Ally"));
+		
+			WebElement button = driver.findElement(By.id("call_south_county_foodbank_button"));
+		
+			JavascriptExecutor exec = (JavascriptExecutor)driver;
+			exec.executeScript("arguments[0].click()", button);
+		
+			assertTrue(driver.getPageSource().contains("tel:1-805-967-5741"));
+		}
+	}
+	
 	@Test
 	public void test_IndexPhp_ButtonDonate() {
 		
