@@ -133,4 +133,28 @@ public class IndexPhp_Tests {
 			assertTrue(state.driver.getTitle().equals("Donate to Foodbank of Santa Barbara County | Classy"));
 		}
 	}
+	
+	@Test
+	public void test_IndexPhp_ButtonAbout() {
+		
+		for(String address:state.addresses){
+			state.driver.get(address);
+        
+			assertTrue(state.driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+        
+			WebElement element =  state.driver.findElement(By.id("about_button"));
+        
+			JavascriptExecutor executor = (JavascriptExecutor)state.driver;
+			executor.executeScript("arguments[0].click();", element);
+        
+			// Wait for the page to load, timeout after 10 seconds
+			(new WebDriverWait(state.driver, 10)).until(new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver d) {
+					return d.getTitle().toLowerCase().startsWith("ally - about");
+				}
+			});
+        
+			assertTrue(state.driver.getTitle().equals("Ally - About"));
+		}
+	}
 }
