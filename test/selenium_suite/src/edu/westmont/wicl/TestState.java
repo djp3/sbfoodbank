@@ -41,6 +41,7 @@ public class TestState {
 		allpages.put("/map-many.php", "Ally - Partner Locator");
 		allpages.put("/map-one.php", "Ally - Partner Locator");
 		allpages.put("/share.php", "Ally - Share");
+		allpages.put("/how-to-use.php", "Ally - How To Use");
 
 		// Create a new instance of the Google driver
 		// Notice that the remainder of the code relies on the interface,

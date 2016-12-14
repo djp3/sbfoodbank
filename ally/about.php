@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 		<title>Ally - About</title>
@@ -20,9 +19,9 @@
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<p class="lead">Ally is a tool for mobile phone users in Santa Barbara to help the homeless community and other in need of finding resources,
-						especially Food. We, the Westmont Computer Science Department, have partnered with the Santa Barbara FoodBank to bring you
-						this experience. Ally is here to keep relevant and informative data about food resources in your pocket so you feel more capable
+					<p class="lead">Ally is a tool for mobile phone users in Santa Barbara to help the community find resources,
+						especially food. We, the Westmont Computer Science Department, have partnered with the Santa Barbara FoodBank to bring you
+						this app. Ally is here to keep relevant and informative data about food resources in your pocket so you feel more capable
 						and more equipped to give help to those in need. Thank you for downloading and desiring to make Santa Barbara a better place.</p>
 				</div>
 			</div>
@@ -45,7 +44,7 @@
 				<div class="row-fluid text-center">
 					<div class="col-xs-6">
 						<a class="btn btn-default btn-lg" href="index.php" role="button" id="home_button">
-							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
+							<img class="bw_logo_button" src="img/logos/black_and_white/black_on_clear.png"/>
 							Home
 						</a>
 					</div>

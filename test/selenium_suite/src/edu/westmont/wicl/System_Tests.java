@@ -97,4 +97,36 @@ public class System_Tests {
 			}
 		}
 	}
+	
+	@Test
+	public void test_ButtonFeedback() {
+		for (String address : state.addresses) {
+			Map<String,String> pagesToTest = new HashMap<String,String>();
+			pagesToTest.putAll(state.allpages);
+			pagesToTest.remove("/feedback.php"); // The feedback page doesn't have a feedback button
+
+			for (Entry<String, String> e : pagesToTest.entrySet()) {
+				state.driver.get(address + e.getKey());
+
+				// Check the title of the page
+				assertTrue(state.driver.getTitle().equals(e.getValue()));
+
+				// Find the home button by its name
+				WebElement element = state.driver.findElement(By.id("feedback_button"));
+
+				// Click the found button
+				element.click();
+
+				// Wait for the page to load, timeout after 10 seconds
+				(new WebDriverWait(state.driver, 10)).until(new ExpectedCondition<Boolean>() {
+					public Boolean apply(WebDriver d) {
+						return d.getTitle().toLowerCase().startsWith("ally");
+					}
+				});
+
+				// Check the title of the page
+				assertTrue(state.driver.getTitle().equals("Ally - Feedback"));
+			}
+		}
+	}
 }
