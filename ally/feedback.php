@@ -12,6 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	</head>
 	<body>
+			
 		<div class="container">
 			<div class="page-header">
 				<h3>Feedback</h3>
@@ -20,23 +21,7 @@
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-		Hello From Ally! Santa Barbara's Helping Hand! Below, Please Enter your name, email, and your feedback and we will get back to you as soon as possible!<br><br>
-		<form action="URL to form script" method="POST">
-
-			Your name: <br>
-			<input type="text" name="realname"><br>
-			<br>
-
-			Your email: <br>
-			<input type="text" name="email"><br>
-			<br>
-
-			Your comments: <br>
-			<textarea name="comments" rows="15" cols="50"></textarea><br><br>
-
-			<input type="submit" value="Submit">
-			 
-			</form>
+					<iframe class="col-md-12" src="https://docs.google.com/a/westmont.edu/forms/d/e/1FAIpQLSfS0P6rpnxvVuH0EyCnngUTKw29NHoE7rxGTBc67FHceIyYqQ/viewform?embedded=true" width="device-width" height="1100" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 				</div>
 			</div>
 		</div>
