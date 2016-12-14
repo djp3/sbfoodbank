@@ -9,8 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestState {
-	public Boolean testProduction = false;
-	public Boolean testStaging = false;
+	public Boolean testProduction = true;
+	public Boolean testStaging = true;
 	public Boolean testLocal = true;
 	public WebDriver driver;
 	public List<String> addresses = new ArrayList<String>();

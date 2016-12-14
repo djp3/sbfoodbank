@@ -56,7 +56,7 @@ public class System_Tests {
 					assertTrue(state.driver.getTitle().equals(e.getValue()));
 				}
 				catch(AssertionError ex){
-					System.err.print("Failed on this page:"+e.toString());
+					System.err.print("Failed on this page:"+address+" "+e.toString()+"\n");
 					throw(ex);
 				}
 					
