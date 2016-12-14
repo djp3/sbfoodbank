@@ -13,32 +13,6 @@
 	</head>
 	<body>
 
-<!--script for populating the destination form via url data -->
-		<script type="text/javascript">
-			function getParameterByName(name, url) {
-    			if (!url) {
-    			  url = window.location.href;
-    			}
-    			name = name.replace(/[\[\]]/g, "\\$&");
-    			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    			    results = regex.exec(url);
-    			if (!results) return null;
-    			if (!results[2]) return '';
-    			return decodeURIComponent(results[2].replace(/\+/g, " "));
-			}
-
-        function addDestination() {
-        	//alert('ok');
-        	var info = getParameterByName('info');
-        	console.log(info);
-        	var form = document.getElementById('textid').innerHTML = info;
-        	console.log(form);	
-            
-        }
-        window.onload = addDestination;
-        </script>
-
-
 		<div class="container">
 			<div class="page-header">
 				<h3>Share Information</h3>
@@ -97,5 +71,17 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
+
+		<!--script for populating the destination form via url data -->
+		<script type="text/javascript">
+        	function addDestination() {
+        		var info = getParameterByName('info');
+				$("#textid").append(info);
+        	}
+			$(function(){
+					addDestination();
+			});
+        </script>
+
 	</body>
 </html>
