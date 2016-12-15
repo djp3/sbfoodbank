@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 		<title>Ally - Santa Barbara FoodBank</title>
@@ -14,7 +13,7 @@
 	<body>
 		<div class="container">
 			<div class="page-header text-center">
-				<img class="bw_logo" src="img/\logos\black_and_white\black_on_clear.png"/>
+				<img class="bw_logo" src="img/logos/black_and_white/black_on_clear.png"/>
 				<h4>Helping Others in Santa Barbara</h4>
 			</div>
 		</div>
@@ -36,24 +35,14 @@
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="col-md-6">
-					<a class="btn btn-default btn-lg" href="tel:1-805-937-3422" role="button">
+				<div class="col-md-12">
+					<a class="btn btn-default btn-lg" href="tel:1-805-937-3422" role="button" id="call_north_county_foodbank_button">
 						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 						Call North County FoodBank
 					</a>
-				</div>
-				<div class="col-md-6">
-					<a class="btn btn-default btn-lg" href="tel:+1-805-967-5741" role="button">
+					<a class="btn btn-default btn-lg" href="tel:1-805-967-5741" role="button"id="call_south_county_foodbank_button">
 						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
 						Call South County FoodBank
-					</a>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="https://donate.foodbanksbc.org/" role="button" id="donate_button">
-						<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-						Donate to the FoodBank
 					</a>
 				</div>
 			</div>
@@ -63,6 +52,18 @@
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 						About
 						</a>
+					<a class="btn btn-default btn-lg" href="how-to-use.php" role="button" id="how_to_use_button">
+						<span class="glyphicon glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+						How To Use Ally
+					</a>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="col-md-12">
+					<a class="btn btn-default btn-lg" href="https://donate.foodbanksbc.org/" role="button" id="donate_button">
+						<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+						Donate to the FoodBank
+					</a>
 				</div>
 			</div>
 		</div>

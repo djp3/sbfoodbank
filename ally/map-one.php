@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 		<title>Ally - Partner Locator</title>
@@ -25,7 +24,7 @@
 				<div class="row-fluid text-center">
 					<div class="col-xs-6">
 						<a class="btn btn-default btn-lg" href="index.php" role="button" id="home_button">
-							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
+							<img class="bw_logo_button" src="img/logos/black_and_white/black_on_clear.png"/>
 							Home
 						</a>
 					</div>
