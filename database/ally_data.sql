@@ -43,13 +43,14 @@ CREATE TABLE `sites` (
   `USDA` varchar(255) DEFAULT NULL,
   `Foodbank Program or Agency` varchar(255) DEFAULT NULL,
   `Phone` varchar(255) DEFAULT '555-1212',
+  `Distribution Type` varchar(255) DEFAULT 'Supplemental Grocery Distribution',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `sites` WRITE;
 /*!40000 ALTER TABLE `sites` DISABLE KEYS */;
 
-INSERT INTO `sites` (`id`, `Agency Name`, `Parent Agency Name`, `Distribution Site Address`, `City`, `State`, `Zip`, `Service Type`, `How to Enroll`, `Prepared (P) or Unprepared (U)`, `Nutrition Education (Y/N)`, `Referral Services (Y/N)`, `Days of Distribution`, `Times of Distribution`, `USDA`, `Foodbank Program or Agency`, `Phone`)
+INSERT INTO `sites` (`id`, `Agency Name`, `Parent Agency Name`, `Distribution Site Address`, `City`, `State`, `Zip`, `Service Type`, `How to Enroll`, `Prepared (P) or Unprepared (U)`, `Nutrition Education (Y/N)`, `Referral Services (Y/N)`, `Days of Distribution`, `Times of Distribution`, `USDA`, `Foodbank Program or Agency`, `Phone`, `Distribution Type`)
 VALUES
 	(1,'Girl\'s Inc. Programs','Girls Inc. Goleta Valley','4973 Hollister Avenue','Santa Barbara ','CA',93111,'Pantry','Show Up During Distribution','U','Y','N','Monday-Friday','10:00am-6:00pm','Y','Agency','805-963-4492'),
 	(2,'Good Shepherd Lutheran Church','Good Shepherrd Lutheran Church','380 North Fairview','Santa Barbara ','CA',93111,'Pantry','Show Up During Distribution','U','Y','N','','','Y','Agency','805-967-1416'),

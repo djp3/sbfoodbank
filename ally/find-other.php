@@ -41,12 +41,14 @@
 					$serviceType ="Service Type";
 					$distributionSiteAddress ="Distribution Site Address";
 					$phone ="Phone";
+					$distributionType ="Distribution Type"
 
 					$prop_id = "`$id`";
 				   	$prop_agencyName = "`$agencyName`";
 					$prop_serviceType = "`$serviceType`";
 					$prop_distributionSiteAddress = "`$distributionSiteAddress`";
 					$prop_phone = "`$phone`";
+					$prop_distributionType = "`$distributionType`";
 
 					class TableRows extends RecursiveIteratorIterator { 
 						function __construct($it) { 
@@ -59,6 +61,7 @@
 							global $serviceType;
 							global $distributionSiteAddress;
 							global $phone;
+							global $distributionType;
 
 				            global $currentAgencyName;
 				            global $currentPhone;
@@ -73,6 +76,15 @@
 <?php
 				            }
 				            if (parent::key() == $serviceType) {
+?> 
+				<td>
+<?php
+								echo parent::current()."\n"
+?>
+				</td>
+<?php
+							}
+							if (parent::key() == $distributionType) {
 ?> 
 				<td>
 <?php
@@ -121,7 +133,7 @@
 					try {
 						$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						$stmt = $conn->prepare("SELECT $prop_id, $prop_agencyName, $prop_serviceType, $prop_distributionSiteAddress, $prop_phone FROM $tablename WHERE $prop_serviceType != 'Pantry' AND $prop_serviceType != 'Soup Kitchen' ORDER BY $prop_agencyName"); 
+						$stmt = $conn->prepare("SELECT $prop_id, $prop_agencyName, $prop_serviceType, $prop_distributionSiteAddress, $prop_phone, $prop_distributionType FROM $tablename WHERE $prop_serviceType != 'Pantry' AND $prop_serviceType != 'Soup Kitchen' ORDER BY $prop_agencyName"); 
 						$stmt->execute();
 
 						// set the resulting array to associative
