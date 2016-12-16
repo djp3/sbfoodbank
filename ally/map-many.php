@@ -2,8 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
+
+		<!-- These make the web page look more like an app on mobile devices -->
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+		<!-- -->
+
 		<title>Ally - Partner Locator</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>

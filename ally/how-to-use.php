@@ -2,8 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
+
+		<!-- These make the web page look more like an app on mobile devices -->
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+		<!-- -->
+
 		<title>Ally - How To Use</title>
 		<meta name="description" content="This is a page that describes how to use this app."/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>

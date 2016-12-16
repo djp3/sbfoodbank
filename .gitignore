@@ -2,6 +2,9 @@
 .editorconfig
 version.ini
 
+#a link to the google doc feedback form
+resources/googleShared
+
 #Temporaryteditor buffers for vi
 *.swp
 
@@ -24,6 +27,7 @@ test/selenium_suite/.metadata/.log
 test/selenium_suite/.metadata/.mylyn
 test/selenium_suite/.metadata/.plugins
 test/selenium_suite/.metadata/version.ini
+test/selenium_workspace
 test/selenium_workspace/.metadata/.lock
 test/selenium_workspace/.metadata/.log
 test/selenium_workspace/.metadata/.mylyn
