@@ -4,6 +4,7 @@
 		<meta charset="utf-8"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<link class="bw_logo" rel="icon" href="img/logos/black_and_white/black_on_clear.png">
 		<title>Ally - Partner Locator</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
