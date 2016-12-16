@@ -21,7 +21,7 @@
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<a class="btn btn-default btn-lg" href="find-food.php" role="button" id="find_food_button">
+					<a class="btn btn-default btn-lg" href="find-food.php" role="button" id="find_food_btn">
 						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
 						Find Food
 					</a>

@@ -115,7 +115,7 @@ public class SampleTests {
 			assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
 
 			// Find the text input element by its name
-			WebElement element = driver.findElement(By.id("find_food_button"));
+			WebElement element = driver.findElement(By.id("find_food_btn"));
 
 			element.click();
 
