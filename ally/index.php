@@ -16,12 +16,14 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	</head>
 	<body>
+	<h1 style="background-color:rgb(155,128,128)";>
 		<div class="container">
 			<div class="page-header text-center">
 				<img class="bw_logo" src="img/logos/black_and_white/black_on_white_animated.gif"/>
 				<h4>Helping Others in Santa Barbara</h4>
 			</div>
 		</div>
+	</h1>
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">

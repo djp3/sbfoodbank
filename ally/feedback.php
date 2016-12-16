@@ -16,12 +16,13 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	</head>
 	<body>
-			
+	<h1 style="background-color:rgb(155,128,128)";>		
 		<div class="container">
 			<div class="page-header">
 				<h3>Feedback</h3>
 			</div>
 		</div>
+	</h1>
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">

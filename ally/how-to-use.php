@@ -16,11 +16,13 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	</head>
 	<body>
+	<h1 style="background-color:rgb(155,128,128)";>	
 		<div class="container">
 			<div class="page-header">
-				<h4>How To Use Ally</h4>
+				<h3>How To Use Ally</h3>
 			</div>
 		</div>
+	</h1>
 		<div class="container">
 			<div class="row-fluid">
 				<div class="col-md-12">
