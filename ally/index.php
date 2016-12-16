@@ -2,8 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
+
+		<!-- These make the web page look more like an app on mobile devices -->
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+		<!-- -->
+
 		<title>Ally - Santa Barbara FoodBank</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
@@ -13,7 +18,7 @@
 	<body>
 		<div class="container">
 			<div class="page-header text-center">
-				<img class="bw_logo" src="img/logos/black_and_white/black_on_clear.png"/>
+				<img class="bw_logo" src="img/logos/black_and_white/black_on_white_animated.gif"/>
 				<h4>Helping Others in Santa Barbara</h4>
 			</div>
 		</div>
