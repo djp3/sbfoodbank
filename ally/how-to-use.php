@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<!-- -->
 
+		<link class="bw_logo" rel="icon" href="img/logos/black_and_white/black_on_clear.png">
 		<title>Ally - How To Use</title>
 		<meta name="description" content="This is a page that describes how to use this app."/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
