@@ -17,11 +17,13 @@
 		<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	</head>
 	<body>
+	<h1 style="background-color:rgb(155,128,128)";>	
 		<div class="container">
 			<div class="page-header">
 				<h3>Find Food</h3>
 			</div>
 		</div>
+	</h1>
 		<div class="container-fluid">
 			<div class="table-responsive">
 				<table class="table table-striped table-condensed">
