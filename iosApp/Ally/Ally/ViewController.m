@@ -10,14 +10,25 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+    
+    NSString *address = @"http://djp3.westmont.edu/ally_staging/ally/index.php?";
+    NSString *params = @"";
+    
+    
+    // Build the url and loadRequest
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",address,params];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:requestObj];
+    }
 
 
 - (void)didReceiveMemoryWarning {
