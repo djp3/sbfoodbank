@@ -101,7 +101,8 @@
 
 				$servername = "localhost";
 				$username = "ally_user";
-				$password = "ally_user_password";
+				$ini_array = parse_ini_file("../../../.djp3_ally_ally_staging.ini");
+				$password = $ini_array["mysql_password"];
 				$dbname = "ally";
 
 				try {
