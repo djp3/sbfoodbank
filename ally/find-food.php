@@ -38,7 +38,7 @@
 <?php
 					$servername = "localhost";
 					$username = "ally_user";
-					$password = "ally_user_password";
+					$password = "";
 					$dbname = "ally";
 					$tablename = "sites";
 
