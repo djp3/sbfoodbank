@@ -50,8 +50,10 @@ public class IndexPhp_Tests {
 			// Find the text input element by its name
 			WebElement element = state.driver.findElement(By.id("find_food_button"));
 
-			element.click();
-
+			//Click element
+			JavascriptExecutor executor = (JavascriptExecutor)state.driver;
+			executor.executeScript("arguments[0].click();", element);
+			
 			assertTrue(state.driver.getTitle().equals("Ally - Find Food"));
 		}
 	}
@@ -69,11 +71,31 @@ public class IndexPhp_Tests {
 			// Find the text input element by its name
 			WebElement element = state.driver.findElement(By.id("find_other_resources_button"));
 
-			// Enter something to search for
-			element.click();
+			JavascriptExecutor executor = (JavascriptExecutor)state.driver;
+			executor.executeScript("arguments[0].click();", element);
 
 			// Check the title of the page
 			assertTrue(state.driver.getTitle().equals("Ally - Find Other Resources"));
+		}
+	}
+	
+	@Test
+	public void test_IndexPhp_HowToUseAlly_Button() {
+		
+		for(String address:state.addresses){
+			state.driver.get(address);
+        
+			// Check the title of the page
+			assertTrue(state.driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+
+			// Find the text input element by its name
+			WebElement element = state.driver.findElement(By.id("how_to_use_button"));
+
+			//Click element
+			JavascriptExecutor executor = (JavascriptExecutor)state.driver;
+			executor.executeScript("arguments[0].click();", element);
+			
+			assertTrue(state.driver.getTitle().equals("Ally - How To Use"));
 		}
 	}
 	

@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<!-- -->
 
+		<link class="bw_logo" rel="icon" href="img/logos/black_and_white/black_on_clear.png">
 		<title>Ally - Find Other Resources</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
@@ -39,6 +40,7 @@
 					$username = "ally_user";
 					$ini_array = parse_ini_file("../../../.djp3_ally_ally_staging.ini");
 					$password = $ini_array["mysql_password"];
+					$password = "";
 					$dbname = "ally";
 					$tablename = "sites";
 
